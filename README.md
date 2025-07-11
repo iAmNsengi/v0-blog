@@ -1,30 +1,45 @@
-# basehub-blog
+# NsengiBlog
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+A modern tech blog built with Next.js and BaseHub CMS, featuring content about programming languages, frameworks, and development insights.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/julian/v0-basehub-blog)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/wScF0riJ6Hd)
+## Features
 
-## Overview
+- 📝 Tech-focused blog posts
+- 🎨 Modern, clean light theme design
+- 📧 Newsletter subscription
+- 🔍 SEO optimized
+- ⚡ Fast performance with Next.js 15
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## Tech Stack
+
+- **Framework**: Next.js 15
+- **CMS**: BaseHub
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Typography**: Tailwind Typography
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Set up your BaseHub token in environment variables
+4. Run the development server: `npm run dev`
+
+## Environment Variables
+
+\`\`\`env
+BASEHUB_TOKEN=your_basehub_token_here
+\`\`\`
 
 ## Deployment
 
-Your project is live at:
+This project is optimized for deployment on Vercel with automatic deployments from your repository.
 
-**[https://vercel.com/julian/v0-basehub-blog](https://vercel.com/julian/v0-basehub-blog)**
+## Content
 
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/wScF0riJ6Hd](https://v0.dev/chat/projects/wScF0riJ6Hd)**
-
-## How It Works
-
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+The blog covers topics including:
+- Programming languages (JavaScript, Python, TypeScript, etc.)
+- Web frameworks (React, Next.js, Vue, etc.)
+- Development tools and best practices
+- Tech industry insights
+- Coding tutorials and guides

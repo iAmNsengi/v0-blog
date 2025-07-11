@@ -19,9 +19,7 @@ export async function generateStaticParams() {
 
 type PageProps = { params: Promise<{ slug: string }> }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const postData = await basehub().query({
     meta: {
@@ -40,7 +38,7 @@ export async function generateMetadata({
   const postTitle = post._title
   const postDescription = post.excerpt
   const postOgImage = post.coverImage?.url
-  const siteTitle = postData.meta?.title || `BaseHub x v0 Example`
+  const siteTitle = postData.meta?.title || `NsengiBlog - Tech & Programming Blog`
 
   return {
     title: `${postTitle} | ${siteTitle}`,
@@ -99,19 +97,16 @@ export default async function PostPage({ params }: PageProps) {
   if (!post) notFound()
 
   return (
-    <main>
+    <main className="bg-white min-h-screen">
       <section className="container mx-auto px-5">
         <h2 className="mt-16 mb-16 md:mb-12 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
-          <Link href="/" className="hover:underline">
-            Blog.
+          <Link href="/" className="hover:underline text-blue-600">
+            NsengiBlog.
           </Link>
         </h2>
         <Post {...post} />
         <hr className="mt-28 mb-24" />
-        <MoreStories
-          morePosts={morePostsData.blog.posts.items}
-          title={postData.blog.morePosts}
-        />
+        <MoreStories morePosts={morePostsData.blog.posts.items} title={postData.blog.morePosts} />
       </section>
     </main>
   )

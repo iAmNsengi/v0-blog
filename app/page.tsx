@@ -3,7 +3,7 @@ import { Intro } from "./components/intro"
 import { HeroPost, PostMetaFragment } from "./components/hero-post"
 import { MoreStories } from "./components/more-stories"
 import { Newsletter } from "./components/newsletter"
-import { Metadata } from "next"
+import type { Metadata } from "next"
 
 export const dynamic = "force-static"
 export const revalidate = 30
@@ -20,30 +20,33 @@ export async function generateMetadata(): Promise<Metadata> {
   })
 
   return {
-    title: data.meta?.title || `BaseHub x v0 Example`,
+    title: data.meta?.title || `NsengiBlog - Tech & Programming Blog`,
     description:
-      data.meta?.description || `This is a blog built with BaseHub and v0.`,
+      data.meta?.description ||
+      `Explore the latest in technology, programming languages, frameworks, and development insights on NsengiBlog.`,
     generator: "v0.dev",
     openGraph: {
-      title: data.meta?.title || `BaseHub x v0 Example`,
+      title: data.meta?.title || `NsengiBlog - Tech & Programming Blog`,
       description:
-        data.meta?.description || `This is a blog built with BaseHub and v0.`,
+        data.meta?.description ||
+        `Explore the latest in technology, programming languages, frameworks, and development insights on NsengiBlog.`,
       images: data.meta?.ogImage?.url
         ? [
             {
               url: data.meta.ogImage.url,
               width: 1200,
               height: 630,
-              alt: data.meta?.title || `BaseHub x v0 Example`,
+              alt: data.meta?.title || `NsengiBlog - Tech & Programming Blog`,
             },
           ]
         : [],
     },
     twitter: {
       card: "summary_large_image",
-      title: data.meta?.title || `BaseHub x v0 Example`,
+      title: data.meta?.title || `NsengiBlog - Tech & Programming Blog`,
       description:
-        data.meta?.description || `This is a blog built with BaseHub and v0.`,
+        data.meta?.description ||
+        `Explore the latest in technology, programming languages, frameworks, and development insights on NsengiBlog.`,
       images: data.meta?.ogImage?.url ? [data.meta.ogImage.url] : [],
     },
   }
@@ -70,7 +73,7 @@ export default async function Page() {
   const morePosts = data.blog.posts.items.slice(1)
 
   return (
-    <main>
+    <main className="bg-white min-h-screen">
       <section className="container mx-auto px-5">
         <Intro />
         {heroPost && <HeroPost {...heroPost} />}

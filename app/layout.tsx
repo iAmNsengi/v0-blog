@@ -15,10 +15,9 @@ export const metadata = {
   generator: "v0.dev",
 }
 
-const envs: Record<string, { isValid: boolean; name: string; label: string }> =
-  {}
-const _vercel_url_env_name = 'VERCEL_URL'
-const isMainV0 = process.env[_vercel_url_env_name]?.startsWith('kzmquqo4qg7kooxw6eex')
+const envs: Record<string, { isValid: boolean; name: string; label: string }> = {}
+const _vercel_url_env_name = "VERCEL_URL"
+const isMainV0 = process.env[_vercel_url_env_name]?.startsWith("kzmquqo4qg7kooxw6eex")
 
 let allValid = true
 const subscribeEnv = ({
@@ -41,9 +40,7 @@ const subscribeEnv = ({
   }
 }
 
-export default async function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   let playgroundNotification = null
 
   subscribeEnv({
@@ -53,7 +50,6 @@ export default async function RootLayout({
   })
 
   if (!isMainV0 && !allValid && process.env.NODE_ENV !== "production") {
-
     const playgroundData = await basehub().query({
       _sys: {
         playgroundInfo: {
@@ -65,27 +61,17 @@ export default async function RootLayout({
     })
 
     if (playgroundData._sys.playgroundInfo) {
-      playgroundNotification = (
-        <PlaygroundSetupModal
-          playgroundInfo={playgroundData._sys.playgroundInfo}
-          envs={envs}
-        />
-      )
+      playgroundNotification = <PlaygroundSetupModal playgroundInfo={playgroundData._sys.playgroundInfo} envs={envs} />
     }
   }
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className="bg-white">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           {!isMainV0 && <Toolbar />}
           {playgroundNotification}
-          <main className="min-h-screen">
+          <main className="min-h-screen bg-white">
             {children}
             <Footer />
           </main>
